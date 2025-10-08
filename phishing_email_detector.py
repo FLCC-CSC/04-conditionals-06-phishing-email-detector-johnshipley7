@@ -16,20 +16,23 @@
 ########## ENTER YER CODE BELOW THIS LINE ##########
 
 
-subject = input('Enter the email subject line: ')
+subject = input('Enter the email subject line: ').lower()
 print()
 print("SECURITY ASSESSMENT: ")
 if "Meeting" in subject:
     print("No phishing indicators detected.")
-if "BANK" "TRANSFER"  in subject:
+elif "bank" in subject and "request" in subject and "transfer"  in subject:
     print("HIGH RISK: Possible phishing attempt.")
-if "password" "reset" in subject:
-    print("Verify legitimacy with sender.")
-if "win win" in subject:
+elif "password" in subject and "reset" in subject:
+    print("LOW RISK: Verify legitimacy with sender.")
+elif "win win" in subject:
     print("MEDIUM RISK: Suspicious offer detected.")
     
 print("------------------------")
-print(f"Analyzed subject:{subject} ")
+if subject == "urgent request for bank transfer":
+    print(f'Analyzed subject:"{subject.upper()}"')
+else:
+    print(f'Analyzed subject:"{subject}"')
 
 
 
